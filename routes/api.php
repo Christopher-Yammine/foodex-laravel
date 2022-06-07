@@ -24,4 +24,9 @@ Route::post('/AddReview', [ReviewsController::class, 'addReview'])->name("AddRev
 Route::post('/AddUser',[UsersController::class,'addUser'])->name("NewUser");
 Route::post('/UpdateUser',[UsersController::class,'updateUser'])->name("UpdateUser");
 Route::get('/getUnaccepted',[ReviewsController::class,'getUnaccepted'])->name("getUnaccepted");
+Route::get('/getAccepted',[ReviewsController::class,'getAccepted'])->name("getAccepted");
 Route::post('/acceptReview',[ReviewsController::class,'acceptReview'])->name("acceptReview");
+Route::get('/getLocations',[RestaurantsController::class,'getLocations'])->name("getLocations");
+Route::get('/getTypes',[RestaurantsController::class,'getTypes'])->name("getTypes");
+Route::post('/addLocation',[RestaurantsController::class,'addLocation'])->name("addLocation");
+Route::post('/addType',[RestaurantsController::class,'addType'])->name("addType");

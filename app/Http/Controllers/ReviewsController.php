@@ -40,5 +40,16 @@ class ReviewsController extends Controller
         ],200);
 
     }
+    public function getAccepted(){
+        $review =Review::join('users','users.id_user','=','reviews.user_id')
+        ->join('restaurants','restaurants.id_restaurant','=','reviews.id_restaurant')
+        ->where('reviews.rev_status',1)
+        ->get(['reviews.*','users.name','restaurants.restaurant_name','restaurants.restaurant_number']);
+        return response()->json([
+            "status"=>"Success",
+            "reviews"=>$review
+        ],200);
+    
    
+    }
 }
