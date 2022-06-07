@@ -23,3 +23,4 @@ Route::post('/Login', [UsersController::class, 'login'])->name("Login");
 Route::post('/AddReview', [ReviewsController::class, 'addReview'])->name("AddReview");
 Route::post('/AddUser',[UsersController::class,'addUser'])->name("NewUser");
 Route::post('/UpdateUser',[UsersController::class,'updateUser'])->name("UpdateUser");
+Route::get('/getUnaccepted',[ReviewsController::class,'getUnaccepted'])->name("getUnaccepted");

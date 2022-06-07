@@ -42,9 +42,9 @@ class UsersController extends Controller
         ], 200);
     }
     public function updateUser(Request $request){
-        $user=User::where('id_user',$request->id_user)->update(['email'=>$request->email],
-        ['password'=>$request->password],['name'=>$request->name],['last_name'=>$request->last_name],
-        ['profile_picture'=>$request->profile_picture]);
+        $user=User::where('id_user',$request->id_user)->update(['email'=>$request->email,
+        'password'=>$request->password,'name'=>$request->name,'last_name'=>$request->last_name,
+        'profile_picture'=>$request->profile_picture]);
 
         return response()->json([
             "status" => "Success"

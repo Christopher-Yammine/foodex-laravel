@@ -21,5 +21,17 @@ class ReviewsController extends Controller
             "status" => "Success"
         ], 200);
     }
+    public function getUnaccepted(){
+        $review =Review::join('users','users.id_user','=','reviews.user_id')
+        ->join('restaurants','restaurants.id_restaurant','=','reviews.id_restaurant')
+        ->where('reviews.rev_status',0)
+        ->get(['reviews.*','users.name','restaurants.restaurant_name','restaurants.restaurant_number']);
+        return response()->json([
+            "status"=>"Success",
+            "reviews"=>$review
+        ],200);
+        
+
+    }
    
 }
