@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+use App\Http\Controllers\RestaurantsController;
+
+Route::get('/AllRestos', [RestaurantsController::class, 'getAllRestos'])->name("AllRestos");
