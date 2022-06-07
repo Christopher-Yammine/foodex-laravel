@@ -33,5 +33,12 @@ class ReviewsController extends Controller
         
 
     }
+    public function acceptReview(Request $request){
+        $review=Review::where('id_review',$request->id_review)->update(['rev_status'=>1]);
+        return response()->json([
+            "status"=>"Success"
+        ],200);
+
+    }
    
 }
