@@ -21,3 +21,4 @@ use App\Http\Controllers\ReviewsController;
 Route::get('/AllRestos', [RestaurantsController::class, 'getAllRestos'])->name("AllRestos");
 Route::post('/Login', [UsersController::class, 'login'])->name("Login");
 Route::post('/AddReview', [ReviewsController::class, 'addReview'])->name("AddReview");
+Route::post('/AddUser',[UsersController::class,'addUser'])->name("NewUser");

@@ -15,7 +15,23 @@ class RestaurantsController extends Controller{
             "status" => "Success",
             "restos" => $restos
         ], 200);
-    }
     
+    }
+    public function addResto(Request $request){
+        $resto = new Restaurant;
+        $resto->restaurant_name = $request->restaurant_name;
+        $resto->restaurant_picture = $request->restaurant_picture;
+        $resto->restaurant_description =$request->restaurant_description;
+        $resto->restaurant_type = $request->restaurant_type;
+        $resto->restaurant_number = $request->restaurant_number;
+        $resto->location_id = $request->location_id;
+        
+        $resto->save();
+        
+        return response()->json([
+            "status" => "Success"
+        ], 200);
+    }
+
 }
 

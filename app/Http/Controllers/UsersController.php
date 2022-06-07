@@ -25,4 +25,20 @@ class UsersController extends Controller
         }
 
     }
+    public function addUser(Request $request){
+        $user = new User;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->id_usertype =0;
+        $user->name = $request->name;
+        $user->last_name = $request->last_name;
+        $user->gender = $request->gender;
+        $user->profile_picture = $request->profile_picture;
+        
+        $user->save();
+        
+        return response()->json([
+            "status" => "Success"
+        ], 200);
+    }
 }
