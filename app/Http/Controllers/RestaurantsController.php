@@ -16,5 +16,6 @@ class RestaurantsController extends Controller{
             "restos" => $restos
         ], 200);
     }
+    
 }
 

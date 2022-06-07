@@ -15,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\RestaurantsController;
-
+use App\Http\Controllers\UsersController;
 Route::get('/AllRestos', [RestaurantsController::class, 'getAllRestos'])->name("AllRestos");
+Route::post('/Login', [UsersController::class, 'login'])->name("Login");
