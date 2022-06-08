@@ -30,3 +30,4 @@ Route::get('/getLocations',[RestaurantsController::class,'getLocations'])->name(
 Route::get('/getTypes',[RestaurantsController::class,'getTypes'])->name("getTypes");
 Route::post('/addLocation',[RestaurantsController::class,'addLocation'])->name("addLocation");
 Route::post('/addType',[RestaurantsController::class,'addType'])->name("addType");
+Route::post('/getStats',[ReviewsController::class,'getStats'])->name("getStats");

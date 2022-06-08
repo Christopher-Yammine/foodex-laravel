@@ -52,4 +52,29 @@ class ReviewsController extends Controller
     
    
     }
+
+    public function getStats(Request $request){
+        $stats=Review::join('users','users.id_user','=','reviews.user_id')
+        ->join('restaurants','restaurants.id_restaurant','=','reviews.id_restaurant')
+        ->where('reviews.id_restaurant',$request->id_restaurant)->where('reviews.rev_status',1)
+        ->get(['restaurants.restaurant_name','restaurants.restaurant_number','reviews.rating']);
+        $number=count($stats);
+        $st=0;
+        for ($i=0;$i<$number;$i++){
+            $st+=$stats[$i]->rating;
+        }
+        $avg=round($st/$number,1);
+   
+        
+        
+        return response()->json([
+              "stats"=>$stats,
+              "number"=>$number,
+              "st"=>$st,
+              "avg"=>$avg
+              
+             
+        ],200);
+    }
+
 }
